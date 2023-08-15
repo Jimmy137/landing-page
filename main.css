@@ -1,0 +1,383 @@
+html{
+    font-size: 62.5%;
+    
+}
+body{
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.wrapper{
+    max-width: 1200px;
+    width:90%;
+    margin: 0 auto;
+}
+/* Nav */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav{
+    margin: 4em;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    gap: 4.1em;
+    margin: 0;
+    
+}
+nav ul li a{
+    text-decoration-line: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    position: relative;
+    
+}
+
+nav ul li a.active-page:before {
+    position: absolute;
+    content: "";
+    width: 75%;
+    height: 1px;
+    border-bottom: 2px solid black;
+    bottom: -6px;
+}
+nav ul li a:before {
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 1px;
+    border-bottom: 2px solid rgb(119, 119, 119);
+    bottom: -6px;
+    transition: width 0.3s;
+}
+/* Main*/
+main{
+    display: flex;
+    gap: 8em;
+    margin: 2em 0;
+}
+.left-col{
+    width: 45%;
+}
+
+h1{
+    font-size: 5.2rem;
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    margin: 0;
+}
+.left-col p{
+    font-size: 1.8rem;
+}
+.btns, .secondary{
+    display: flex;
+    gap: 2em;
+}
+.btns{
+    margin: 5em 0;
+}
+.primary{
+    background-color: #F1E2D1;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    border-radius: 1.9em;
+    padding: 1em 2em;
+}
+.secondary{
+    font-size: 1.8rem;
+    color: black;
+    text-decoration: none;
+    gap: 1em;
+    align-items: center;
+    transition: text-decoration 0.5s;
+    
+}
+.secondary svg{
+    width: 25px;
+    transition: transform 0.3s;
+}
+.news{
+    display: flex;
+    gap: 3em;
+    padding: 5em;
+    border: 1px solid black;
+    border-radius: 0.8em;
+    position: relative;
+}
+.news:before{
+    position: absolute;
+    content:'';
+    background:url("images/confetti.svg") ;
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    left: -20px;
+}
+p.employees{
+    font-size: 3.3rem;
+    font-weight: 200;
+    margin: 0;
+    line-height: 100%;
+}
+p.details{
+    font-size: 1.4rem;
+    margin: 0;
+}
+.right-col{
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-areas: "left right-top" "left right-bottom";
+    gap: 2.3em;
+}
+.card{
+    border-radius: 0.8em;
+    padding: 1.1em;
+    display: flex;
+    align-items: end;
+    background-size: 150%;
+    transition: background-size 0.8s;
+}
+.card1{
+    grid-area: left;
+    background-image: url('images/clothing1.jpg');
+    position: relative;
+}
+.card1:before{
+    position: absolute;
+    content: '';
+    background: url('images/tag.svg') no-repeat;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 20px;
+    left: -30px;
+    pointer-events: none;
+}
+.card2{
+    background-image: url('images/clothing2.jpg');
+}
+.card3{
+    background-image: url('images/clothing3.jpg');
+}
+.card-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.6em;
+    padding: 2em;
+    background-color: white;
+    width: 100%;
+    transition: transform 0.8s;
+}
+.card-details a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.card-details p {
+    font-size: 1.4rem;
+    margin: 0;
+}
+.product-price{
+    font-size: 1.8rem;
+}
+
+/*animations*/
+nav ul li a:hover:before {
+    width: 75%;
+}
+.primary:hover{
+    background-color: #cebdaa;
+}
+
+.secondary:hover svg{
+    transform: translateX(10px);
+}
+.secondary:hover {
+    text-decoration: underline;
+}
+.card:hover{
+    background-size: 170%;
+}
+.card:hover .card-details{
+    transform: translateY(-20px);
+}
+/*Intro Animation*/
+
+.overlay{
+    position: absolute;
+    z-index: 999;
+    background: white;
+    width: 100%;
+    height: 100%;
+    animation: fadeOut 1s ease-in forwards ;
+    transform-origin: bottom;
+    display: block;
+}
+@keyframes fadeOut {
+    0%{
+        transform: scaleX(1);
+    }
+    
+    100%{
+        transform: scaleX(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+  nav {
+    margin: 2em;
+  }
+  nav ul {
+    gap: 2em;
+  }
+  main {
+    flex-direction: column;
+    gap: 4em;
+    margin: 1.5em 0;
+  }
+  .left-col {
+    width: 100%;
+  }
+  .right-col {
+    grid-template-columns: 1fr;
+    grid-template-areas: "left" "right-top" "right-bottom";
+    gap: 2em;
+  }
+  .card {
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+  }
+  .card-details {
+    padding: 1em;
+    text-align: center;
+  }
+  .card1:before{
+    position: absolute;
+    content: '';
+    background: url('images/tag.svg') no-repeat;
+    width: 70%;
+    height: 70%;
+    z-index: 2;
+    top: 20px;
+    left: -30px;
+    pointer-events: none;
+}
+}
+
+@media (max-width: 480px) {
+
+  html {
+    font-size: 55%;
+  }
+  .wrapper {
+    width: 95%;
+    margin: 0 auto;
+  }
+  nav {
+    margin: 1em;
+  }
+  nav ul {
+    gap: 0.8em;
+  }
+  nav ul li a {
+    font-size: 1.4rem;
+  }
+  h1 {
+    font-size: 4.2rem;
+  }
+  .left-col p {
+    font-size: 1.4rem;
+  }
+  .primary {
+    font-size: 1.4rem;
+    padding: 0.8em 1.6em;
+  }
+  .secondary {
+    font-size: 1.4rem;
+    gap: 0.8em;
+  }
+  .news {
+    padding: 2em;
+  }
+  p.employees {
+    font-size: 2.6rem;
+  }
+  p.details {
+    font-size: 1.2rem;
+  }
+  .card-details a {
+    font-size: 1.4rem;
+  }
+  .product-price {
+    font-size: 1.6rem;
+  }
+  .card1:before{
+    position: absolute;
+    content: '';
+    background: url('images/tag.svg') no-repeat;
+    width: 50%;
+    height: 50%;
+    z-index: 2;
+    top: 20px;
+    left: -30px;
+    pointer-events: none;
+}
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 50%;
+  }
+  nav {
+    margin: 1.5em;
+  }
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+  h1 {
+    font-size: 3.8rem;
+  }
+  .left-col p {
+    font-size: 1.2rem;
+  }
+  .primary {
+    font-size: 1.2rem;
+    padding: 0.6em 1.2em;
+  }
+  .secondary {
+    font-size: 1.2rem;
+    gap: 0.6em;
+  }
+  .news {
+    padding: 1.5em;
+  }
+  p.employees {
+    font-size: 2.2rem;
+  }
+  p.details {
+    font-size: 1rem;
+  }
+  .card-details a {
+    font-size: 1.2rem;
+  }
+  .product-price {
+    font-size: 1.4rem;
+  }
+}
+
+
